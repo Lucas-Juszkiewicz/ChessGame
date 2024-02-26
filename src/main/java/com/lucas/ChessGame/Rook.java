@@ -1,13 +1,12 @@
 package com.lucas.ChessGame;
 
-public class Pawn extends Figures{
-    private String currentPosition;
+public class Rook extends Figures{
+    String currentPosition;
     private String[] possibleMovements;
 
-    public Pawn(Type type, Color color) {
+    public Rook(Type type, Color color) {
         super(type, color);
     }
-
     public String getCurrentPosition() {
         return currentPosition;
     }
@@ -15,6 +14,7 @@ public class Pawn extends Figures{
     public void setCurrentPosition(String coordinates) {
         this.currentPosition = coordinates;
     }
+
 
 
     @Override

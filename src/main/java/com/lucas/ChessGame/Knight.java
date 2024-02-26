@@ -1,10 +1,12 @@
 package com.lucas.ChessGame;
 
-public class Pawn extends Figures{
-    private String currentPosition;
+public class Knight extends Figures{
+
+    String currentPosition;
     private String[] possibleMovements;
 
-    public Pawn(Type type, Color color) {
+
+    public Knight(Type type, Color color) {
         super(type, color);
     }
 
@@ -16,9 +18,9 @@ public class Pawn extends Figures{
         this.currentPosition = coordinates;
     }
 
-
     @Override
     public String[] getPossibleMovements() {
         return new String[0];
     }
+
 }

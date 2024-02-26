@@ -1,10 +1,10 @@
 package com.lucas.ChessGame;
 
-public class Pawn extends Figures{
+public class Queen extends Figures{
     private String currentPosition;
     private String[] possibleMovements;
 
-    public Pawn(Type type, Color color) {
+    public Queen(Type type, Color color) {
         super(type, color);
     }
 
