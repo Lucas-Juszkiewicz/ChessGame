@@ -8,6 +8,16 @@ public class Queen extends Figures{
         super(type, color);
     }
 
+    @Override
+    public void setPossibleMovements(String coordinates) {
+
+    }
+
+    @Override
+    public String[] getPossibleMovements() {
+        return new String[0];
+    }
+
     public String getCurrentPosition() {
         return currentPosition;
     }
@@ -16,9 +26,4 @@ public class Queen extends Figures{
         this.currentPosition = coordinates;
     }
 
-
-    @Override
-    public String[] getPossibleMovements() {
-        return new String[0];
-    }
 }

@@ -8,6 +8,42 @@ public class ChessBoard {
 
     }
 
+    public void makeAMove(String startCoordinates, String endCoordinates) {
+        Figures figure = whatStandsHere(startCoordinates);
+        for (String possibleMove : figure.getPossibleMovements()) {
+            if (checkIfTheMoveIsValid(figure, endCoordinates)) {
+                if (possibleMove.equals(endCoordinates)) {
+                    int endRow = getRow(endCoordinates);
+                    int endColumn = getColumn(endCoordinates);
+                    boardArray[endRow][endColumn] = figure;
+                    figure.setCurrentPosition(endCoordinates);
+
+                    int startRow = getRow(startCoordinates);
+                    int startColumn = getColumn(startCoordinates);
+                    boardArray[startRow][startColumn] = null;
+
+                    System.out.printf("\n Valid move %s -> %s == %s\n", startCoordinates, endCoordinates, possibleMove);
+                }
+            }
+        }
+
+    }
+
+    private boolean checkIfTheMoveIsValid(Figures figure, String endCoordinates) {
+        int row = getRow(endCoordinates);
+        int column = getColumn(endCoordinates);
+        if ((row >= 0 && row <= 8) && (column >= 0 && column <= 8)) {
+            if (whatStandsHere(endCoordinates) != null) {
+                Figures opponent = whatStandsHere(endCoordinates);
+                return opponent.getColor() != figure.getColor();
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+
     public void boardSetUp() {
 
         //white Pawns
@@ -122,12 +158,12 @@ public class ChessBoard {
         return boardArray[getRow(coordinates)][getColumn(coordinates)];
     }
 
-    private int getRow(String coordinates) {
+    public static int getRow(String coordinates) {
         int rowNumber = Integer.parseInt(coordinates.substring(1));
         return rowNumber - 1;
     }
 
-    private int getColumn(String coordinates) {
+    public static int getColumn(String coordinates) {
         char columnLetter = coordinates.charAt(0);
         return (int) columnLetter - 97;
     }
@@ -139,7 +175,7 @@ public class ChessBoard {
                 if (figure != null) {
                     answer.append(figure).append(" ");
                 } else {
-                    answer.append("      null     ||");
+                    answer.append("       null      ||");
                 }
             }
             answer.append("\n");
@@ -209,44 +245,44 @@ public class ChessBoard {
                 }
             }
             case PAWN -> {
-                if(color.toString().equals("WHITE")){
-                    if(whatStandsHere("a2") == null){
+                if (color.toString().equals("WHITE")) {
+                    if (whatStandsHere("a2") == null) {
                         yield "a2";
-                    }else if(whatStandsHere("b2") == null){
+                    } else if (whatStandsHere("b2") == null) {
                         yield "b2";
-                    }else if(whatStandsHere("c2") == null){
+                    } else if (whatStandsHere("c2") == null) {
                         yield "c2";
-                    }else if(whatStandsHere("d2") == null){
+                    } else if (whatStandsHere("d2") == null) {
                         yield "d2";
-                    }else if(whatStandsHere("e2") == null){
+                    } else if (whatStandsHere("e2") == null) {
                         yield "e2";
-                    }else if(whatStandsHere("f2") == null){
+                    } else if (whatStandsHere("f2") == null) {
                         yield "f2";
-                    }else if(whatStandsHere("g2") == null){
+                    } else if (whatStandsHere("g2") == null) {
                         yield "g2";
-                    }else if(whatStandsHere("h2") == null){
+                    } else if (whatStandsHere("h2") == null) {
                         yield "h2";
-                    }else {
+                    } else {
                         yield null;
                     }
-                }else {
-                    if(whatStandsHere("a7") == null){
+                } else {
+                    if (whatStandsHere("a7") == null) {
                         yield "a7";
-                    }else if(whatStandsHere("b7") == null){
+                    } else if (whatStandsHere("b7") == null) {
                         yield "b7";
-                    }else if(whatStandsHere("c7") == null){
+                    } else if (whatStandsHere("c7") == null) {
                         yield "c7";
-                    }else if(whatStandsHere("d7") == null){
+                    } else if (whatStandsHere("d7") == null) {
                         yield "d7";
-                    }else if(whatStandsHere("e7") == null){
+                    } else if (whatStandsHere("e7") == null) {
                         yield "e7";
-                    }else if(whatStandsHere("f7") == null){
+                    } else if (whatStandsHere("f7") == null) {
                         yield "f7";
-                    }else if(whatStandsHere("g7") == null){
+                    } else if (whatStandsHere("g7") == null) {
                         yield "g7";
-                    }else if(whatStandsHere("h7") == null){
+                    } else if (whatStandsHere("h7") == null) {
                         yield "h7";
-                    }else {
+                    } else {
                         yield null;
                     }
                 }

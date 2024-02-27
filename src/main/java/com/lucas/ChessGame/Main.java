@@ -5,5 +5,17 @@ public class Main {
         ChessBoard board = new ChessBoard();
         board.boardSetUp();
         System.out.println(board.printBoard());
+
+        board.makeAMove("b2", "b4");
+        System.out.println(board.printBoard());
+
+        board.makeAMove("b4", "b5");
+        System.out.println(board.printBoard());
+
+        board.makeAMove("a7", "a6");
+        System.out.println(board.printBoard());
+
+        board.makeAMove("b5", "a6");
+        System.out.println(board.printBoard());
     }
 }

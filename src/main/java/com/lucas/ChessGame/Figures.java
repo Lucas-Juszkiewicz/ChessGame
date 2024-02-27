@@ -11,6 +11,8 @@ public abstract class Figures {
         this.color = color;
     }
 
+    public abstract void setPossibleMovements(String coordinates);
+
     public abstract String[] getPossibleMovements();
 
     public Color getColor() {
@@ -28,6 +30,14 @@ public abstract class Figures {
     public void setCurrentPosition(String coordinates) {
         this.currentPosition = coordinates;
     }
+
+    public String turnInChessCoordinates(int rowNumber, int columnNumber){
+        int actualColumnNumber = columnNumber+97;
+        char actualColumnLetter = (char) actualColumnNumber;
+        int actualRow = rowNumber+1;
+        return String.format("%s%d",actualColumnLetter, actualRow);
+    }
+
 
     @Override
     public String toString() {
