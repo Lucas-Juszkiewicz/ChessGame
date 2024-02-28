@@ -49,107 +49,107 @@ public class ChessBoard {
         //white Pawns
         for (int i = 0; i < 8; i++) {
             Pawn pawn = new Pawn(Type.PAWN, Color.WHITE);
-            int row = getRow(getStartPosition(pawn.getType(), pawn.getColor(), boardArray));
-            int column = getColumn(getStartPosition(pawn.getType(), pawn.getColor(), boardArray));
-            pawn.setCurrentPosition(getStartPosition(pawn.getType(), pawn.getColor(), boardArray));
+            int row = getRow(getStartPosition(pawn.getType(), pawn.getColor()));
+            int column = getColumn(getStartPosition(pawn.getType(), pawn.getColor()));
+            pawn.setCurrentPosition(getStartPosition(pawn.getType(), pawn.getColor()));
             this.boardArray[row][column] = pawn;
         }
 
         //black Pawns
         for (int i = 0; i < 8; i++) {
             Pawn pawn = new Pawn(Type.PAWN, Color.BLACK);
-            int row = getRow(getStartPosition(pawn.getType(), pawn.getColor(), boardArray));
-            int column = getColumn(getStartPosition(pawn.getType(), pawn.getColor(), boardArray));
-            pawn.setCurrentPosition(getStartPosition(pawn.getType(), pawn.getColor(), boardArray));
+            int row = getRow(getStartPosition(pawn.getType(), pawn.getColor()));
+            int column = getColumn(getStartPosition(pawn.getType(), pawn.getColor()));
+            pawn.setCurrentPosition(getStartPosition(pawn.getType(), pawn.getColor()));
             this.boardArray[row][column] = pawn;
         }
 
         //white King
         for (int i = 0; i < 1; i++) {
             King king = new King(Type.KING, Color.WHITE);
-            int row = getRow(getStartPosition(king.getType(), king.getColor(), boardArray));
-            int column = getColumn(getStartPosition(king.getType(), king.getColor(), boardArray));
-            king.setCurrentPosition(getStartPosition(king.getType(), king.getColor(), boardArray));
+            int row = getRow(getStartPosition(king.getType(), king.getColor()));
+            int column = getColumn(getStartPosition(king.getType(), king.getColor()));
+            king.setCurrentPosition(getStartPosition(king.getType(), king.getColor()));
             this.boardArray[row][column] = king;
         }
 
         //black King
         for (int i = 0; i < 1; i++) {
             King king = new King(Type.KING, Color.BLACK);
-            int row = getRow(getStartPosition(king.getType(), king.getColor(), boardArray));
-            int column = getColumn(getStartPosition(king.getType(), king.getColor(), boardArray));
-            king.setCurrentPosition(getStartPosition(king.getType(), king.getColor(), boardArray));
+            int row = getRow(getStartPosition(king.getType(), king.getColor()));
+            int column = getColumn(getStartPosition(king.getType(), king.getColor()));
+            king.setCurrentPosition(getStartPosition(king.getType(), king.getColor()));
             this.boardArray[row][column] = king;
         }
 
         //white Queen
         for (int i = 0; i < 1; i++) {
             Queen queen = new Queen(Type.QUEEN, Color.WHITE);
-            int row = getRow(getStartPosition(queen.getType(), queen.getColor(), boardArray));
-            int column = getColumn(getStartPosition(queen.getType(), queen.getColor(), boardArray));
-            queen.setCurrentPosition(getStartPosition(queen.getType(), queen.getColor(), boardArray));
+            int row = getRow(getStartPosition(queen.getType(), queen.getColor()));
+            int column = getColumn(getStartPosition(queen.getType(), queen.getColor()));
+            queen.setCurrentPosition(getStartPosition(queen.getType(), queen.getColor()));
             this.boardArray[row][column] = queen;
         }
 
         //black Queen
         for (int i = 0; i < 1; i++) {
             Queen queen = new Queen(Type.QUEEN, Color.BLACK);
-            int row = getRow(getStartPosition(queen.getType(), queen.getColor(), boardArray));
-            int column = getColumn(getStartPosition(queen.getType(), queen.getColor(), boardArray));
-            queen.setCurrentPosition(getStartPosition(queen.getType(), queen.getColor(), boardArray));
+            int row = getRow(getStartPosition(queen.getType(), queen.getColor()));
+            int column = getColumn(getStartPosition(queen.getType(), queen.getColor()));
+            queen.setCurrentPosition(getStartPosition(queen.getType(), queen.getColor()));
             this.boardArray[row][column] = queen;
         }
         //white Rooks
         for (int i = 0; i < 2; i++) {
             Rook rook = new Rook(Type.ROOK, Color.WHITE);
-            int row = getRow(getStartPosition(rook.getType(), rook.getColor(), boardArray));
-            int column = getColumn(getStartPosition(rook.getType(), rook.getColor(), boardArray));
-            rook.setCurrentPosition(getStartPosition(rook.getType(), rook.getColor(), boardArray));
+            int row = getRow(getStartPosition(rook.getType(), rook.getColor()));
+            int column = getColumn(getStartPosition(rook.getType(), rook.getColor()));
+            rook.setCurrentPosition(getStartPosition(rook.getType(), rook.getColor()));
             this.boardArray[row][column] = rook;
         }
 
         //black Rooks
         for (int i = 0; i < 2; i++) {
             Rook rook = new Rook(Type.ROOK, Color.BLACK);
-            int row = getRow(getStartPosition(rook.getType(), rook.getColor(), boardArray));
-            int column = getColumn(getStartPosition(rook.getType(), rook.getColor(), boardArray));
-            rook.setCurrentPosition(getStartPosition(rook.getType(), rook.getColor(), boardArray));
+            int row = getRow(getStartPosition(rook.getType(), rook.getColor()));
+            int column = getColumn(getStartPosition(rook.getType(), rook.getColor()));
+            rook.setCurrentPosition(getStartPosition(rook.getType(), rook.getColor()));
             this.boardArray[row][column] = rook;
         }
 
         //white Bishops
         for (int i = 0; i < 2; i++) {
             Bishop bishop = new Bishop(Type.BISHOP, Color.WHITE);
-            int row = getRow(getStartPosition(bishop.getType(), bishop.getColor(), boardArray));
-            int column = getColumn(getStartPosition(bishop.getType(), bishop.getColor(), boardArray));
-            bishop.setCurrentPosition(getStartPosition(bishop.getType(), bishop.getColor(), boardArray));
+            int row = getRow(getStartPosition(bishop.getType(), bishop.getColor()));
+            int column = getColumn(getStartPosition(bishop.getType(), bishop.getColor()));
+            bishop.setCurrentPosition(getStartPosition(bishop.getType(), bishop.getColor()));
             this.boardArray[row][column] = bishop;
         }
 
         //black Bishops
         for (int i = 0; i < 2; i++) {
             Bishop bishop = new Bishop(Type.BISHOP, Color.BLACK);
-            int row = getRow(getStartPosition(bishop.getType(), bishop.getColor(), boardArray));
-            int column = getColumn(getStartPosition(bishop.getType(), bishop.getColor(), boardArray));
-            bishop.setCurrentPosition(getStartPosition(bishop.getType(), bishop.getColor(), boardArray));
+            int row = getRow(getStartPosition(bishop.getType(), bishop.getColor()));
+            int column = getColumn(getStartPosition(bishop.getType(), bishop.getColor()));
+            bishop.setCurrentPosition(getStartPosition(bishop.getType(), bishop.getColor()));
             this.boardArray[row][column] = bishop;
         }
 
         //white Knights
         for (int i = 0; i < 2; i++) {
             Knight knight = new Knight(Type.KNIGHT, Color.WHITE);
-            int row = getRow(getStartPosition(knight.getType(), knight.getColor(), boardArray));
-            int column = getColumn(getStartPosition(knight.getType(), knight.getColor(), boardArray));
-            knight.setCurrentPosition(getStartPosition(knight.getType(), knight.getColor(), boardArray));
+            int row = getRow(getStartPosition(knight.getType(), knight.getColor()));
+            int column = getColumn(getStartPosition(knight.getType(), knight.getColor()));
+            knight.setCurrentPosition(getStartPosition(knight.getType(), knight.getColor()));
             this.boardArray[row][column] = knight;
         }
 
         //black Knights
         for (int i = 0; i < 2; i++) {
             Knight knight = new Knight(Type.KNIGHT, Color.BLACK);
-            int row = getRow(getStartPosition(knight.getType(), knight.getColor(), boardArray));
-            int column = getColumn(getStartPosition(knight.getType(), knight.getColor(), boardArray));
-            knight.setCurrentPosition(getStartPosition(knight.getType(), knight.getColor(), boardArray));
+            int row = getRow(getStartPosition(knight.getType(), knight.getColor()));
+            int column = getColumn(getStartPosition(knight.getType(), knight.getColor()));
+            knight.setCurrentPosition(getStartPosition(knight.getType(), knight.getColor()));
             this.boardArray[row][column] = knight;
         }
     }
@@ -183,7 +183,7 @@ public class ChessBoard {
         return answer.toString();
     }
 
-    private String getStartPosition(Type type, Color color, Figures[][] boardArray) {
+    private String getStartPosition(Type type, Color color) {
         return switch (type) {
             case KING -> color.toString().equals("WHITE") ? "e1" : "e8";
             case QUEEN -> color.toString().equals("WHITE") ? "d1" : "d8";
