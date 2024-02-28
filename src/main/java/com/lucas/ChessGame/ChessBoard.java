@@ -183,7 +183,7 @@ public class ChessBoard {
         return answer.toString();
     }
 
-    public String getStartPosition(Type type, Color color, Figures[][] boardArray) {
+    private String getStartPosition(Type type, Color color, Figures[][] boardArray) {
         return switch (type) {
             case KING -> color.toString().equals("WHITE") ? "e1" : "e8";
             case QUEEN -> color.toString().equals("WHITE") ? "d1" : "d8";
