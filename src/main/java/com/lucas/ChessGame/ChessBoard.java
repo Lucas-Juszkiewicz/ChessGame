@@ -1,6 +1,9 @@
 package com.lucas.ChessGame;
 
 public class ChessBoard {
+    // a structural note - package name should be lowercase and domain reverse order meaning: src/main/com/java/lucas/chessgame
+    // all the figures (abstract and concrete) should be under models/figures
+    // there should be a directory for your config enums holding type and color
 
     Figures[][] boardArray = new Figures[8][8];
 
@@ -11,6 +14,9 @@ public class ChessBoard {
     // makeMove() -
     // String startCoordinates and String endCoordinates
     // are declared by the player
+    
+    // makeAMove should be a method that a Player has, the board should have a method playGame that creates PLayers, starts the game and calls players in turn and checks for the mate after each move
+    // Player should have available pieces and therefore available moves to chose from as part of his move
     public void makeAMove(String startCoordinates, String endCoordinates) {
         Figures figure = whatStandsHere(startCoordinates);
         for (String possibleMove : figure.getPossibleMovements()) {
@@ -54,10 +60,12 @@ public class ChessBoard {
     // This function is used in the chess board constructor.
     // It is used to place thirty-two figures on the board
     // as it should look at the beginning of the game.
-    public void boardSetUp() {
+    public void boardSetUp() { // this whole method should be a service class, with its public method called in the constructor of ChessBoard
 
+        // extend enums to store the information about the starting posisions of the each piece type for each color - that would remove those pointless fors
+        // do something like for(color: colors) { for (type: types) { setupPieces(color, type) }} - that would get rid of the nasty repetition 
         //white Pawns
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 8; i++) { 
             Pawn pawn = new Pawn(Type.PAWN, Color.WHITE);
             //determining the initial coordinates of the figure
             String startPosition = getStartPosition(pawn.getType(), pawn.getColor());
@@ -178,6 +186,7 @@ public class ChessBoard {
         }
     }
 
+    // use numbers for coordinates throughout the code, only turn it to string when showing to the user
     public Figures whatStandsHere(String coordinates) {
         return boardArray[getRow(coordinates)][getColumn(coordinates)];
     }
@@ -207,6 +216,7 @@ public class ChessBoard {
         return answer.toString();
     }
 
+    // all that information belongs with the specific type, not in the board class
     private String getStartPosition(Type type, Color color) {
         return switch (type) {
             case KING -> color.toString().equals("WHITE") ? "e1" : "e8";
@@ -214,6 +224,8 @@ public class ChessBoard {
             case ROOK -> {
                 if (color.toString().equals("WHITE")) {
                     if (whatStandsHere("a1") == null) {
+                        // you're setting up the board, you shouldn't be worried about something being there, everything should be null at this point
+                        // if you want to be sure create method clear() in the ChessBoard class that will clear the whole board nulling all the fields
                         yield "a1";
                     } else if (whatStandsHere("h1") == null) {
                         yield "h1";
