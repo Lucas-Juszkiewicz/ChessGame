@@ -1,47 +1,68 @@
 package com.lucas.ChessGame;
 
-public abstract class Figures {
-    private final Type type;
-    private final Color color;
-    private String currentPosition;
-    private String[] possibleMovements;
+import java.util.Arrays;
+import java.util.Objects;
 
-    public Figures(Type type, Color color) {
+public abstract class Figures {
+    protected final Type type;
+    protected final Color color;
+    protected String currentPosition;
+    protected String[] possibleMovements;
+
+    protected Figures(Type type, Color color) {
         this.type = type;
         this.color = color;
     }
 
-    public abstract void setPossibleMovements(String coordinates);
-
-    public abstract String[] getPossibleMovements();
-
-    public Color getColor() {
-        return color;
-    }
-
-    public Type getType() {
+    protected Type getType() {
         return type;
     }
 
-    public String getCurrentPosition() {
-        return currentPosition;
+    protected Color getColor() {
+        return color;
     }
 
-    public void setCurrentPosition(String coordinates) {
+
+    protected String getCurrentPosition() {
+        return this.currentPosition;
+    }
+
+    protected void setCurrentPosition(String coordinates) {
         this.currentPosition = coordinates;
+        setPossibleMovements(coordinates);
     }
 
-    public String turnInChessCoordinates(int rowNumber, int columnNumber){
-        int actualColumnNumber = columnNumber+97;
-        char actualColumnLetter = (char) actualColumnNumber;
-        int actualRow = rowNumber+1;
-        return String.format("%s%d",actualColumnLetter, actualRow);
+    protected abstract void setPossibleMovements(String coordinates);
+
+    protected String[] getPossibleMovements() {
+        return this.possibleMovements;
     }
 
+    //    Conversion from numbers to coordinates from the game board
+    protected String convertToChessboardCoordinates(int rowNumber, int columnNumber) {
+        int numberOfTheColumnChar = columnNumber + 97;
+        char actualColumnLetter = (char) numberOfTheColumnChar;
+        int actualRow = rowNumber + 1;
+        return String.format("%s%d", actualColumnLetter, actualRow);
+    }
 
     @Override
     public String toString() {
         return String.format("%s-%s on %s ||", this.type, this.color, getCurrentPosition());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Figures figures)) return false;
+        return type == figures.type && color == figures.color && Objects.equals(currentPosition, figures.currentPosition) && Arrays.equals(possibleMovements, figures.possibleMovements);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(type, color, currentPosition);
+        result = 31 * result + Arrays.hashCode(possibleMovements);
+        return result;
     }
 }
 
