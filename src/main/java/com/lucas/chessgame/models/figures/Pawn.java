@@ -1,4 +1,8 @@
-package com.lucas.ChessGame;
+package com.lucas.chessgame.models.figures;
+
+import com.lucas.chessgame.ChessBoard;
+import com.lucas.chessgame.enums.Color;
+import com.lucas.chessgame.enums.Type;
 
 public class Pawn extends Figures {
 

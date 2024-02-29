@@ -1,4 +1,7 @@
-package com.lucas.ChessGame;
+package com.lucas.chessgame.models.figures;
+
+import com.lucas.chessgame.enums.Color;
+import com.lucas.chessgame.enums.Type;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -14,11 +17,11 @@ public abstract class Figures {
         this.color = color;
     }
 
-    protected Type getType() {
+    public Type getType() {
         return type;
     }
 
-    protected Color getColor() {
+    public Color getColor() {
         return color;
     }
 
@@ -27,14 +30,14 @@ public abstract class Figures {
         return this.currentPosition;
     }
 
-    protected void setCurrentPosition(String coordinates) {
+    public void setCurrentPosition(String coordinates) {
         this.currentPosition = coordinates;
         setPossibleMovements(coordinates);
     }
 
     protected abstract void setPossibleMovements(String coordinates);
 
-    protected String[] getPossibleMovements() {
+    public String[] getPossibleMovements() {
         return this.possibleMovements;
     }
 

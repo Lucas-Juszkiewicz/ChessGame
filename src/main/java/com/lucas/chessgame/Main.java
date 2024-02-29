@@ -1,4 +1,4 @@
-package com.lucas.ChessGame;
+package com.lucas.chessgame;
 
 public class Main {
     public static void main(String[] args) {

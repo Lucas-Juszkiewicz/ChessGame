@@ -1,5 +1,8 @@
-package com.lucas.ChessGame;
+package com.lucas.chessgame;
 
+import com.lucas.chessgame.enums.Color;
+import com.lucas.chessgame.enums.Type;
+import com.lucas.chessgame.models.figures.Figures;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,8 @@
-package com.lucas.ChessGame;
+package com.lucas.chessgame;
+
+import com.lucas.chessgame.enums.Color;
+import com.lucas.chessgame.enums.Type;
+import com.lucas.chessgame.models.figures.*;
 
 public class ChessBoard {
 
