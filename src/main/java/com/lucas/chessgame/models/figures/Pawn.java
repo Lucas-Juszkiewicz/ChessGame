@@ -1,6 +1,5 @@
 package com.lucas.chessgame.models.figures;
 
-import com.lucas.chessgame.ChessBoard;
 import com.lucas.chessgame.enums.Color;
 import com.lucas.chessgame.enums.Type;
 
@@ -13,9 +12,9 @@ public class Pawn extends Figures {
     }
 
     @Override
-    public void setPossibleMovements(String coordinates) {
-        int currentRow = ChessBoard.getRow(coordinates);
-        int currentColumn = ChessBoard.getColumn(coordinates);
+    public void setPossibleMovements() {
+        int currentRow = getCurrentRow();
+        int currentColumn = getCurrentColumn();
         if (this.getColor() == Color.WHITE) {
             if (isItFirstMove) {
                 isItFirstMove = false;

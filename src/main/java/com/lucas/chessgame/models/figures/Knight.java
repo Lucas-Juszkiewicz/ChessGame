@@ -10,7 +10,7 @@ public class Knight extends Figures{
     }
 
     @Override
-    protected void setPossibleMovements(String coordinates) {
+    protected void setPossibleMovements() {
 
     }
 }
