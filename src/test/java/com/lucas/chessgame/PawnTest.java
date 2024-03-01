@@ -15,10 +15,12 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 public class PawnTest {
 
     private Player player;
+    private ChessBoard board;
 
     @BeforeEach
     void setUp() {
         player = new Player();
+        board = new ChessBoard();
     }
 
     @Test
