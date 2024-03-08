@@ -2,7 +2,7 @@ package com.lucas.chessgame;
 
 import com.lucas.chessgame.enums.Color;
 import com.lucas.chessgame.enums.Type;
-import com.lucas.chessgame.models.figures.Pawn;
+import com.lucas.chessgame.models.figures.*;
 
 public class Service {
     //boardSetUp() -
@@ -12,16 +12,23 @@ public class Service {
     public static void boardSetUp() {
         for (Type type : Type.values()) {
             for (Color color : Color.values()) {
-                int[][] sPositionOfFigures = Pawn.getStartingCoordinates(type, color);
+                int[][] sPositionOfFigures = Figures.getStartingCoordinates(type, color);
                 for (int i = 0; i < sPositionOfFigures[0].length; i++) {
                     int row = sPositionOfFigures[0][i];
                     int column = sPositionOfFigures[1][i];
 
                     //placing the figure on the board
-                    Pawn figure = new Pawn(type, color);
+                    Figures figure = switch (type) {
+                        case BISHOP -> new Bishop(type, color);
+                        case KING -> new King(type, color);
+                        case KNIGHT -> new Knight(type, color);
+                        case PAWN -> new Pawn(type, color);
+                        case QUEEN -> new Queen(type, color);
+                        case ROOK -> new Rook(type, color);
+                    };
                     ChessBoard.boardArray[row][column] = figure;
                     //saving the initial coordinates in figure.currentPosition (figures.currentPosition)
-                    figure.setCurrentPosition(row, column);
+                    figure.setCurrentPosition(new Coordinates(row, column));
                 }
             }
         }

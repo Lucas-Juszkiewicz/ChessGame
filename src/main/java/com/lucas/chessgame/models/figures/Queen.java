@@ -9,7 +9,7 @@ public class Queen extends Figures {
     }
 
     @Override
-    protected void setPossibleMovements() {
+    public void setPossibleMovements() {
 
     }
 }

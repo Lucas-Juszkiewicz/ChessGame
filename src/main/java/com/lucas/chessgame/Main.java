@@ -9,16 +9,16 @@ public class Main {
 
         System.out.println(board.printBoard());
 
-        player.makeAMove("b2", "b4");
+        player.makeAMove(new Coordinates("b2"), new Coordinates("b4"));
         System.out.println(board.printBoard());
 
-        player.makeAMove("b4", "b5");
+        player.makeAMove(new Coordinates("b4"), new Coordinates("b5"));
         System.out.println(board.printBoard());
 
-        player.makeAMove("a7", "a6");
+        player.makeAMove(new Coordinates("a7"), new Coordinates("a6"));
         System.out.println(board.printBoard());
 
-        player.makeAMove("b5", "a6");
+        player.makeAMove(new Coordinates("b5"), new Coordinates("a6"));
         System.out.println(board.printBoard());
     }
 }

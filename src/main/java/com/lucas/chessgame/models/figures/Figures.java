@@ -1,21 +1,20 @@
 package com.lucas.chessgame.models.figures;
 
 
-
 import com.lucas.chessgame.enums.Color;
 import com.lucas.chessgame.enums.Type;
+import com.lucas.chessgame.Coordinates;
 
 import java.util.Arrays;
 import java.util.Objects;
 
-public abstract class Figures {
+public abstract class Figures{
     protected final Type type;
     protected final Color color;
-    protected int currentRow;
-    protected int currentColumn;
-    protected String[] possibleMovements;
+    protected Coordinates currentCoordinates;
+    protected Coordinates[] possibleMovements;
 
-    protected Figures(Type type, Color color) {
+    public Figures(Type type, Color color) {
         this.type = type;
         this.color = color;
     }
@@ -28,32 +27,19 @@ public abstract class Figures {
         return color;
     }
 
-    public int getCurrentRow() {
-        return currentRow;
+    public Coordinates getCurrentCoordinates() {
+        return this.currentCoordinates;
     }
 
-    public int getCurrentColumn() {
-        return currentColumn;
-    }
-
-    public void setCurrentPosition(int row, int column) {
-        this.currentRow = row;
-        this.currentColumn = column;
+    public void setCurrentPosition(Coordinates coordinates) {
+        this.currentCoordinates = coordinates;
         setPossibleMovements();
     }
 
-    protected abstract void setPossibleMovements();
+    public abstract void setPossibleMovements();
 
-    public String[] getPossibleMovements() {
+    public Coordinates[] getPossibleMovements(){
         return this.possibleMovements;
-    }
-
-    //    Conversion from numbers to coordinates from the game board
-    protected String convertToChessboardCoordinates(int rowNumber, int columnNumber) {
-        int numberOfTheColumnChar = columnNumber + 97;
-        char actualColumnLetter = (char) numberOfTheColumnChar;
-        int actualRow = rowNumber + 1;
-        return String.format("%s%d", actualColumnLetter, actualRow);
     }
 
 
@@ -142,19 +128,21 @@ public abstract class Figures {
 
     @Override
     public String toString() {
-        return String.format("%s-%s on %s ||", this.type, this.color, convertToChessboardCoordinates(getCurrentRow(), getCurrentColumn()));
+        return String.format("%s-%s on %s ||", this.type, this.color, currentCoordinates.toString());
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Figures figures)) return false;
-        return currentRow == figures.currentRow && currentColumn == figures.currentColumn && type == figures.type && color == figures.color && Arrays.equals(possibleMovements, figures.possibleMovements);
+        return currentCoordinates.getRow() == figures.currentCoordinates.getRow() &&
+                currentCoordinates.getColumn() == figures.currentCoordinates.getColumn() &&
+                type == figures.type && color == figures.color && Arrays.equals(possibleMovements, figures.possibleMovements);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(type, color, currentRow, currentColumn);
+        int result = Objects.hash(type, color, currentCoordinates.getRow(), currentCoordinates.getColumn());
         result = 31 * result + Arrays.hashCode(possibleMovements);
         return result;
     }

@@ -9,7 +9,7 @@ public class Rook extends Figures {
     }
 
     @Override
-    protected void setPossibleMovements() {
+    public void setPossibleMovements() {
 
     }
 }

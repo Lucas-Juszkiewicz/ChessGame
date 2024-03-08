@@ -1,7 +1,6 @@
 package com.lucas.chessgame;
 
 import com.lucas.chessgame.models.figures.Figures;
-import com.lucas.chessgame.models.players.Player;
 
 
 public class ChessBoard {
@@ -13,9 +12,9 @@ public class ChessBoard {
     }
 
 
-    public static boolean checkIfTheMoveIsValid(Figures figure, String endCoordinates) {
-        int row = getRow(endCoordinates);
-        int column = getColumn(endCoordinates);
+    public static boolean checkIfTheMoveIsValid(Figures figure, Coordinates endCoordinates) {
+        int row = endCoordinates.getRow();
+        int column = endCoordinates.getColumn();
         if ((row >= 0 && row <= 8) && (column >= 0 && column <= 8)) {
             if (whatStandsHere(row, column) != null) {
                 Figures opponent = whatStandsHere(row, column);
@@ -44,7 +43,7 @@ public class ChessBoard {
 
     public String printBoard() {
         StringBuilder answer = new StringBuilder();
-        for (Figures[] boardRows : this.boardArray) {
+        for (Figures[] boardRows : boardArray) {
             for (Figures figure : boardRows) {
                 if (figure != null) {
                     answer.append(figure).append(" ");

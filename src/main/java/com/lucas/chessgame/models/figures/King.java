@@ -8,8 +8,9 @@ public class King extends Figures {
         super(type, color);
     }
 
+
     @Override
-    protected void setPossibleMovements() {
+    public void setPossibleMovements() {
 
     }
 }

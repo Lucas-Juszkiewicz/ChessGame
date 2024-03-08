@@ -2,8 +2,9 @@ package com.lucas.chessgame.models.figures;
 
 import com.lucas.chessgame.enums.Color;
 import com.lucas.chessgame.enums.Type;
+import com.lucas.chessgame.Coordinates;
 
-public class Pawn extends Figures {
+public class Pawn extends Figures{
 
     private boolean isItFirstMove = true;
 
@@ -13,43 +14,43 @@ public class Pawn extends Figures {
 
     @Override
     public void setPossibleMovements() {
-        int currentRow = getCurrentRow();
-        int currentColumn = getCurrentColumn();
+        int currentRow = currentCoordinates.getRow();
+        int currentColumn = currentCoordinates.getColumn();
         if (this.getColor() == Color.WHITE) {
             if (isItFirstMove) {
                 isItFirstMove = false;
-                String coordinatesMoveOne = convertToChessboardCoordinates(currentRow + 1, currentColumn);
-                String coordinatesMoveTwo = convertToChessboardCoordinates(currentRow + 2, currentColumn);
+                Coordinates coordinatesMoveOne = new Coordinates(currentRow + 1, currentColumn);
+                Coordinates coordinatesMoveTwo = new Coordinates(currentRow + 2, currentColumn);
                 //captures
-                String coordinatesCaptureThree = convertToChessboardCoordinates(currentRow + 1, currentColumn - 1);
-                String coordinatesCaptureFour = convertToChessboardCoordinates(currentRow + 1, currentColumn + 1);
+                Coordinates coordinatesCaptureThree = new Coordinates(currentRow + 1, currentColumn - 1);
+                Coordinates coordinatesCaptureFour = new Coordinates(currentRow + 1, currentColumn + 1);
 
-                this.possibleMovements = new String[]{coordinatesMoveOne, coordinatesMoveTwo, coordinatesCaptureThree, coordinatesCaptureFour};
+                this.possibleMovements = new Coordinates[]{coordinatesMoveOne, coordinatesMoveTwo, coordinatesCaptureThree, coordinatesCaptureFour};
             } else {
-                String coordinatesMoveOne = convertToChessboardCoordinates(currentRow + 1, currentColumn);
+                Coordinates coordinatesMoveOne = new Coordinates(currentRow + 1, currentColumn);
                 //captures
-                String coordinatesCaptureThree = convertToChessboardCoordinates(currentRow + 1, currentColumn - 1);
-                String coordinatesCaptureFour = convertToChessboardCoordinates(currentRow + 1, currentColumn + 1);
+                Coordinates coordinatesCaptureThree = new Coordinates (currentRow + 1, currentColumn - 1);
+                Coordinates coordinatesCaptureFour = new Coordinates(currentRow + 1, currentColumn + 1);
 
-                this.possibleMovements = new String[]{coordinatesMoveOne, coordinatesCaptureThree, coordinatesCaptureFour};
+                this.possibleMovements = new Coordinates[]{coordinatesMoveOne, coordinatesCaptureThree, coordinatesCaptureFour};
             }
         } else if (this.getColor() == Color.BLACK) {
             if (isItFirstMove) {
                 isItFirstMove = false;
-                String coordinatesMoveOne = convertToChessboardCoordinates(currentRow - 1, currentColumn);
-                String coordinatesMoveTwo = convertToChessboardCoordinates(currentRow - 2, currentColumn);
+                Coordinates coordinatesMoveOne = new Coordinates(currentRow - 1, currentColumn);
+                Coordinates coordinatesMoveTwo = new Coordinates(currentRow - 2, currentColumn);
                 //captures
-                String coordinatesCaptureThree = convertToChessboardCoordinates(currentRow - 1, currentColumn - 1);
-                String coordinatesCaptureFour = convertToChessboardCoordinates(currentRow - 1, currentColumn + 1);
+                Coordinates coordinatesCaptureThree = new Coordinates(currentRow - 1, currentColumn - 1);
+                Coordinates coordinatesCaptureFour = new Coordinates(currentRow - 1, currentColumn + 1);
 
-                this.possibleMovements = new String[]{coordinatesMoveOne, coordinatesMoveTwo, coordinatesCaptureThree, coordinatesCaptureFour};
+                this.possibleMovements = new Coordinates[]{coordinatesMoveOne, coordinatesMoveTwo, coordinatesCaptureThree, coordinatesCaptureFour};
             } else {
-                String coordinatesMoveOne = convertToChessboardCoordinates(currentRow - 1, currentColumn);
+                Coordinates coordinatesMoveOne = new Coordinates(currentRow - 1, currentColumn);
                 //captures
-                String coordinatesCaptureThree = convertToChessboardCoordinates(currentRow - 1, currentColumn - 1);
-                String coordinatesCaptureFour = convertToChessboardCoordinates(currentRow - 1, currentColumn + 1);
+                Coordinates coordinatesCaptureThree = new Coordinates(currentRow - 1, currentColumn - 1);
+                Coordinates coordinatesCaptureFour = new Coordinates(currentRow - 1, currentColumn + 1);
 
-                this.possibleMovements = new String[]{coordinatesMoveOne, coordinatesCaptureThree, coordinatesCaptureFour};
+                this.possibleMovements = new Coordinates[]{coordinatesMoveOne, coordinatesCaptureThree, coordinatesCaptureFour};
             }
         }
     }
