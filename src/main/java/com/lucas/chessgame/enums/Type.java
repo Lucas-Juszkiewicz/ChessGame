@@ -1,4 +1,4 @@
-package com.lucas.ChessGame;
+package com.lucas.chessgame.enums;
 
 public enum Type {
     KING,
@@ -7,4 +7,5 @@ public enum Type {
     BISHOP,
     KNIGHT,
     PAWN;
+
 }
