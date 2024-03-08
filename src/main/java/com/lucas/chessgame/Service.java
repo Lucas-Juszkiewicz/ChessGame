@@ -17,7 +17,7 @@ public class Service {
                     int row = sPositionOfFigures[0][i];
                     int column = sPositionOfFigures[1][i];
 
-                    //placing the figure on the board
+                    //Creating the figure
                     Figures figure = switch (type) {
                         case BISHOP -> new Bishop(type, color);
                         case KING -> new King(type, color);
@@ -26,6 +26,8 @@ public class Service {
                         case QUEEN -> new Queen(type, color);
                         case ROOK -> new Rook(type, color);
                     };
+
+                    //placing the figure on the board
                     ChessBoard.boardArray[row][column] = figure;
                     //saving the initial coordinates in figure.currentPosition (figures.currentPosition)
                     figure.setCurrentPosition(new Coordinates(row, column));

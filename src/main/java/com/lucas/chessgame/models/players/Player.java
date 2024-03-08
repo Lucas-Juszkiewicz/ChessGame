@@ -17,12 +17,12 @@ public class Player {
         int eRow = endCoordinates.getRow();
         int eColumn = endCoordinates.getColumn();
 
-        Figures figure = whatStandsHere(sRow, sColumn);
+        Figures figure = whatStandsHere(startCoordinates);
         for (Coordinates possibleMove : figure.getPossibleMovements()) {
             if (checkIfTheMoveIsValid(figure, endCoordinates)) {
                 if (possibleMove.equals(endCoordinates)) {
                     //placing the figure on the endCoordinates
-                    boardArray[eRow][eColumn] = (Figures) figure;
+                    boardArray[eRow][eColumn] = figure;
                     figure.setCurrentPosition(endCoordinates);
 
                     //clearing the startCoordinates after the figure

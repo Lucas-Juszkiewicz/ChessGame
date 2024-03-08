@@ -16,8 +16,8 @@ public class ChessBoard {
         int row = endCoordinates.getRow();
         int column = endCoordinates.getColumn();
         if ((row >= 0 && row <= 8) && (column >= 0 && column <= 8)) {
-            if (whatStandsHere(row, column) != null) {
-                Figures opponent = whatStandsHere(row, column);
+            if (whatStandsHere(endCoordinates) != null) {
+                Figures opponent = whatStandsHere(endCoordinates);
                 return opponent.getColor() != figure.getColor();
             } else {
                 return true;
@@ -27,18 +27,8 @@ public class ChessBoard {
         }
     }
 
-    public static Figures whatStandsHere(int row, int column) {
-        return boardArray[row][column];
-    }
-
-    public static int getRow(String coordinates) {
-        int rowNumber = Integer.parseInt(coordinates.substring(1));
-        return rowNumber - 1;
-    }
-
-    public static int getColumn(String coordinates) {
-        char columnLetter = coordinates.charAt(0);
-        return (int) columnLetter - 97;
+    public static Figures whatStandsHere(Coordinates coordinates) {
+        return boardArray[coordinates.getRow()][coordinates.getColumn()];
     }
 
     public String printBoard() {
